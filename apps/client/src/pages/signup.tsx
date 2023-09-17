@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import type { NextPage } from 'next';
 function TimerButton() {
   const [isActive, setIsActive] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(24*60*60); // 24 hours in seconds
@@ -48,6 +49,7 @@ function TimerButton() {
 
   return (
     <div>
+        
       <button onClick={startTimer} disabled={isActive}>
         {isActive ? 'Timer Running' : 'Start 24-Hour Timer'}
       </button>
@@ -57,7 +59,18 @@ function TimerButton() {
         </div>
       )}
       <p>Click Count: {clickCount}</p>
+
+      <div
+      style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        padding: 12,
+      }}
+    >
+      <ConnectButton />
     </div>
+    </div>
+    
   );
 }
 
